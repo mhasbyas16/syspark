@@ -1,0 +1,34 @@
+<<<<<<< HEAD
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+=======
+vendor/
+node_modules/
+npm-debug.log
+>>>>>>> 6b3c7d37e556e0d737deef871efba17ab361e704
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+storage/*.key
+<<<<<<< HEAD
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+=======
+.env.*.php
+.env.php
+.env
+Homestead.yaml
+Homestead.json
+
+# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
+.rocketeer/
+>>>>>>> 6b3c7d37e556e0d737deef871efba17ab361e704
