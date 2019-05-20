@@ -14,6 +14,13 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+//login Controller
+Route::post('/login','logincontroller@validasi');
+Route::get ('/logout','logincontroller@logout');
+Route::get ('/dashboard_admin','logincontroller@dashboard');
+Route::get ('/signup','logincontroller@signup');
+
+//end
 
 Route::get('/','Controller@Index');//awalan login
 Route::get('/dash','Controller@Dashboard');//setelah login masuk dashboard
