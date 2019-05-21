@@ -18,6 +18,36 @@
   <!-- Custom styles for this template-->
   <link href="{{url('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+  <!-- Bootstrap core JavaScript-->
+  <script src="{{url('vendor/jquery/jquery.min.js')}}"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="{{url('js/sb-admin-2.min.js')}}"></script>
+
+  <!--Datatable-->
+  <link href="{{url('datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+
+  <script type="text/javascript" language="javascript" src="{{url('datatable/js/jquery.dataTables.min.js')}}"></script>
+  <!--Button-->
+  <link href="{{url('datatable/css/buttons.dataTables.min.css')}}" rel="stylesheet">
+
+  <script type="text/javascript" language="javascript" src="{{url('datatable/js/dataTables.buttons.min.js')}}"></script>
+  <script type="text/javascript" language="javascript" src="{{url('datatable/js/buttons.flash.min.js')}}"></script>
+  <script type="text/javascript" language="javascript" src="{{url('datatable/js/jszip.min.js')}}"></script>
+  <script type="text/javascript" language="javascript" src="{{url('datatable/js/pdfmake.min.js')}}"></script>
+  <script type="text/javascript" language="javascript" src="{{url('datatable/js/vfs_fonts.js')}}"></script>
+  <script type="text/javascript" language="javascript" src="{{url('datatable/js/buttons.html5.min.js')}}"></script>
+  <script type="text/javascript" language="javascript" src="{{url('datatable/js/buttons.print.min.js')}}"></script>
+
+  <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+          $('#pegawai').DataTable( {
+              dom: 'Bfrtip',
+              buttons: [ 'csv', 'excel', 'pdf', 'print' ]
+        });
+        $('#pegawais').DataTable();
+    });
+  </script>
+
 </head>
 
 <body id="page-top">
@@ -70,7 +100,7 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{url('/gawai')}}">Petugas</a>
+            <a class="collapse-item" href="{{url('/petugas')}}">Petugas</a>
             <a class="collapse-item" href="{{url('/kendaraan')}}">Kendaraan</a>
             <a class="collapse-item" href="{{url('/parkir')}}">Parkir</a>
             <a class="collapse-item" href="{{url('/member')}}">Member</a>
@@ -343,16 +373,10 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="{{url('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{url('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="{{url('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="{{url('js/sb-admin-2.min.js')}}"></script>
-
   <!-- Page level plugins -->
   <script src="{{url('vendor/chart.js/Chart.min.js')}}"></script>
 

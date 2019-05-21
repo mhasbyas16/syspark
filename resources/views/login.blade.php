@@ -39,6 +39,13 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">LOGIN</h1>
                   </div>
+                  <!--alert-->
+                @if (\Session::has('alert'))
+                    <div class="alert alert-danger text-center">
+                        <strong> Warning! </strong> {{Session::get('alert')}}
+                    </div>
+                @endif
+
                   <!-- proses login -->
                   <form class="user" method="post" action="{{url('/login')}}">
                       {{csrf_field()}}

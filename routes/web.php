@@ -15,14 +15,17 @@
     return view('welcome');
 });*/
 //login Controller
+Route::get('/','logincontroller@Index');//awalan login
 Route::post('/login','logincontroller@validasi');
 Route::get ('/logout','logincontroller@logout');
 Route::get ('/dashboard_admin','logincontroller@dashboard');
 Route::get ('/signup','logincontroller@signup');
-
 //end
 
-Route::get('/','Controller@Index');//awalan login
+//pegawai Controller
+Route::get('/petugas','pegawaicontroller@petugas');
+//end
+
 Route::get('/dash','Controller@Dashboard');//setelah login masuk dashboard
 Route::get('/main','Controller@Mainmenu');//akses main menu
 Route::get('/gawai','Controller@Datapegawai');//akses data pegawai
