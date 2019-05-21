@@ -32,6 +32,7 @@ class logincontroller extends Controller
                     Session::put('pict',$isiD->pict);
                     Session::put('status',$status->status);
 
+                    DB::table('log')->insert([])
                     return redirect('/dashboard_admin');
                 }else {
                     return redirect('/');
