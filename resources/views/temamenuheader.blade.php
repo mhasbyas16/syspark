@@ -37,14 +37,17 @@
   <script type="text/javascript" language="javascript" src="{{url('datatable/js/vfs_fonts.js')}}"></script>
   <script type="text/javascript" language="javascript" src="{{url('datatable/js/buttons.html5.min.js')}}"></script>
   <script type="text/javascript" language="javascript" src="{{url('datatable/js/buttons.print.min.js')}}"></script>
+  <!--respnsive datatables-->
+   <link href="{{url('datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
+   <script type="text/javascript" language="javascript" src="{{url('datatable/js/dataTables.responsive.min.js')}}"></script>
 
   <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
-          $('#pegawai').DataTable( {
+          $('#pegawais').DataTable( {
               dom: 'Bfrtip',
               buttons: [ 'csv', 'excel', 'pdf', 'print' ]
         });
-        $('#pegawais').DataTable();
+        $('#pegawai').DataTable();
     });
   </script>
 
@@ -92,21 +95,43 @@
         </a>
       </li>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Data Master</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{url('/petugas')}}">Petugas</a>
-            <a class="collapse-item" href="{{url('/kendaraan')}}">Kendaraan</a>
-            <a class="collapse-item" href="{{url('/parkir')}}">Parkir</a>
-            <a class="collapse-item" href="{{url('/member')}}">Member</a>
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                    <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#petugas">Petugas</a>
+                <div id="petugas" class="panel-collapse collapse in">
+                        <a class="collapse-item" href="{{url('/data_petugas')}}">Data Petugas</a>
+                        <a class="collapse-item" href="{{url('/tambah_petugas')}}">Tambah Petugas</a>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                    <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#kendaraan">Kendaraan</a>
+                <div id="kendaraan" class="panel-collapse collapse in">
+                        <a class="collapse-item" href="{{url('/data_petugas')}}">1</a>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                    <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#parkir">Parkir</a>
+                <div id="parkir" class="panel-collapse collapse in">
+                        <a class="collapse-item" href="{{url('/data_petugas')}}">1</a>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                    <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#member">Member</a>
+                <div id="member" class="panel-collapse collapse in">
+                        <a class="collapse-item" href="{{url('/data_petugas')}}">1</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </li>
+    </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">

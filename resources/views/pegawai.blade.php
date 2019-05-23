@@ -5,21 +5,19 @@
         <div class="container">
             <div class="row">
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                <h1 class="h3 mb-4 text-gray-800">Data Employee | Klik for Details</h1>
             </div>
             <div class="row justify-content-center">
 
-          <table id="pegawai" class="display text-center" cellspacing="0" width="100%">
+          <table id="pegawai" class="display text-center nowrap" cellspacing="0" width="100%">
                   <thead>
                       <tr>
                           <th>ID Petugas</th>
                           <th>Nama</th>
-                          <th>NIK</th>
-                          <th>Gender</th>
-                          <th>Agama</th>
+                          <th>Email</th>
                           <th>Alamat</th>
                           <th>No Telepon</th>
-                          <th>Foto</th>
+                          <th>Aksi</th>
                       </tr>
                   </thead>
 
@@ -27,12 +25,10 @@
                       <tr>
                           <th>ID Petugas</th>
                           <th>Nama</th>
-                          <th>NIK</th>
-                          <th>Gender</th>
-                          <th>Agama</th>
+                          <th>Email</th>
                           <th>Alamat</th>
                           <th>No Telepon</th>
-                          <th>Foto</th>
+                          <th>Aksi</th>
                       </tr>
                   </tfoot>
 
@@ -40,19 +36,18 @@
                     @foreach($listP as $listP)
                       <tr>
                           <td>{{$listP->id_petugas}}</td>
-                          <td>{{$listP->nama}}</td>
-                          <td>{{$listP->nik}}</td>
-                          <td>{{$listP->jk}}</td>
-                          <td>{{$listP->agama}}</td>
+                          <td><a href="{{url('/detail_petugas')}}/{{$listP->id_petugas}}"> {{$listP->nama}}</a></td>
+                          <td>{{$listP->email}}</td>
                           <td>{{$listP->alamat}}</td>
                           <td>{{$listP->no_tlfn}}</td>
-                          <td>{{$listP->pict}}</td>
+                          <td><i class="fas fa-user-edit text-red" style="color:green;font-size:20px;"></i> &nbsp;&nbsp;&nbsp;
+                              <i class="fas fa-trash-alt" style="color:red;font-size:20px;"></i></td>
                       </tr>
                      @endforeach
                   </tbody>
               </table>
 
-        </div>
+    </div>
         <!-- /.container-fluid -->
 
       </div>
