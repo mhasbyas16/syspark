@@ -8,6 +8,15 @@
                 <h1 class="h3 mb-4 text-gray-800">Data Employee | Klik for Details</h1>
             </div>
             <div class="row justify-content-center">
+                @if (\Session::has('successalert'))
+                    <div class="alert alert-success text-center">
+                        <strong> Success! </strong> {{Session::get('successalert')}}
+                    </div>
+                    @elseif (\Session::has('alert'))
+                        <div class="alert alert-danger text-center">
+                            <strong> Success! </strong> {{Session::get('alert')}}
+                        </div>
+                @endif
 
           <table id="pegawai" class="display text-center nowrap" cellspacing="0" width="100%">
                   <thead>
@@ -40,8 +49,8 @@
                           <td>{{$listP->email}}</td>
                           <td>{{$listP->alamat}}</td>
                           <td>{{$listP->no_tlfn}}</td>
-                          <td><i class="fas fa-user-edit text-red" style="color:green;font-size:20px;"></i> &nbsp;&nbsp;&nbsp;
-                              <i class="fas fa-trash-alt" style="color:red;font-size:20px;"></i></td>
+                          <td><a href="{{url('/edit_petugas')}}/{{$listP->id_petugas}}"><i class="fas fa-user-edit text-red" style="color:green;font-size:20px;"></i></a> &nbsp;&nbsp;&nbsp;
+                              <a href="{{url('/delete_petugas')}}/{{$listP->id_petugas}}" onclick="return confirm('Are You Sure Delete {{$listP->nama}} ?')"><i class="fas fa-trash-alt" style="color:red;font-size:20px;"></i></td></a>
                       </tr>
                      @endforeach
                   </tbody>

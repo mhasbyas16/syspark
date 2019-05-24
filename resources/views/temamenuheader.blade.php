@@ -50,6 +50,17 @@
         $('#pegawai').DataTable();
     });
   </script>
+  <style>
+#overflowTest {
+  background:grey;
+  color: black;
+  padding: 15px;
+  width: 100%;
+  height: 500px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+}
+</style>
 
 </head>
 

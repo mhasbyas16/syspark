@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Helpers\waktu;
+use App\Helpers\log;
 use DB;
 class logincontroller extends Controller
 {
@@ -29,16 +29,10 @@ class logincontroller extends Controller
                     if ($isiD->status=='login' ) {
                         return redirect('/')->with('alert','Your Account Has Login Another Place, Call Admnistrator For Help');
                     }else{
-                        $tanggal = waktu::gettanggal('Y-m-d');
-                        $jam = waktu::getjam('H:i:s');
                         DB::table('header_petugas')->where('id_petugas',$username)->update(['status'=>'login']);
                         $status = DB::table('header_petugas')->where('id_petugas',$username)->first();
-                        DB::table('log')->insert([
-                            'id_petugas'=>$isiD->id_petugas,
-                            'tanggal'=>$tanggal,
-                            'jam'=>$jam,
-                            'deskripsi'=>'Login'
-                        ]);
+
+                        log::insertlog('Login',$username);
                         //session
                         Session::put('id_petugas',$isiD->id_petugas);
                         Session::put('password',$isiD->password);
@@ -87,16 +81,7 @@ class logincontroller extends Controller
     }
 
     public function Logout(){
-        $id = Session::get('id_petugas');
-        $tanggal = waktu::gettanggal('Y-m-d');
-        $jam = waktu::getjam('H:i:s');
-        DB::table('header_petugas')->where('id_petugas',$id)->update(['status'=>'logout']);
-        DB::table('log')->insert([
-            'id_petugas'=>$id,
-            'tanggal'=>$tanggal,
-            'jam'=>$jam,
-            'deskripsi'=>'Logout'
-        ]);
+        log::insertlog('Logout','');
         Session::flush();
         return redirect('/');
     }

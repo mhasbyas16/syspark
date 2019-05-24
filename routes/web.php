@@ -26,6 +26,9 @@ Route::get ('/signup','logincontroller@signup');
 Route::get('/data_petugas','pegawaicontroller@petugas');
 Route::get('/detail_petugas/{id_petugas}','pegawaicontroller@detail_petugas');
 Route::post('/simpan_petugas','pegawaicontroller@simpan_petugas');
+Route::get('/delete_petugas/{id_petugas}','pegawaicontroller@delete_petugas');
+Route::get('/edit_petugas/{id_petugas}','pegawaicontroller@edit_petugas');
+Route::post('//simpan_edit_petugas','pegawaicontroller@simpan_edit_petugas');
 Route::get('/tambah_petugas',function(){
     return view('register');
 });

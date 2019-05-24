@@ -43,7 +43,7 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Edit an Account!</h1>
               </div>
 
               @if (\Session::has('alert'))
@@ -52,46 +52,44 @@
                   </div>
               @endif
 
-              <form class="user" method="post" action="{{url('/simpan_petugas')}}" enctype="multipart/form-data">
+              <form class="user" method="post" action="{{url('/simpan_edit_petugas')}}" enctype="multipart/form-data">
                   {{csrf_field()}}
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="first_name" placeholder="First Name" autofocus required>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" name="last_name" placeholder="Last Name" required>
-                  </div>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" name="id" value="{{$cariD->id_petugas}}" readonly>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="nik" placeholder="NIK" maxlength="16" required>
+                      <input type="text" class="form-control form-control-user" name="name" value="{{$cariD->nama}}" autofocus required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" name="nik" value="{{$cariD->nik}}" maxlength="16" required>
                 </div>
 
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" name="email" placeholder="Email Address" required>
+                  <input type="email" class="form-control form-control-user" name="email" value="{{$cariD->email}}" required>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <select class="form-control" name="status" required>
-                            <option selected hidden disabled value="single">Status</option>
+                            <option selected hidden value="{{$cariD->status}}">{{$cariD->status}}</option>
                             <option value="single">Single</option>
                             <option value="menikah">Menikah</option>
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-user" name="jumlah_anak" placeholder="Jumlah Anak" required>
+                        <input type="text" class="form-control form-control-user" name="jumlah_anak" value="{{$cariD->jumlah_anak}}" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <select class="form-control" name="jk" required>
-                            <option selected hidden disabled value="L">Jenis Kelamin</option>
+                            <option selected hidden value="{{$cariD->jk}}">{{$cariD->jk}}</option>
                             <option value="L">Laki-Laki</option>
                             <option value="P">Perempuan</option>
                         </select>
                     </div>
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <select class="form-control" name="agama" required>
-                            <option selected hidden disabled value="-">Agama</option>
+                            <option selected hidden value="{{$cariD->agama}}">{{$cariD->agama}}</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen Protestan">Kristen Protestan</option>
                             <option value="Kristen katolik">Kristen katolik</option>
@@ -104,15 +102,15 @@
                 </div>
                 <div class="form-group">
                     <label for="#">Alamat :</label>
-                    <textarea class="form-control" rows="2" name="alamat" required></textarea>
+                    <textarea class="form-control" rows="2" name="alamat" required>{{$cariD->alamat}}</textarea>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" name="no_tlfn" placeholder="Nomor Telefon" required>
+                        <input type="text" class="form-control form-control-user" name="no_tlfn" value="{{$cariD->no_tlfn}}" required>
                     </div>
                     <div class="col-sm-6">
                         <select class="form-control" name="hakakses" required>
-                            <option selected hidden disabled value="karyawan">Hak Akses</option>
+                            <option selected hidden value="{{$cariD->hakakses}}">{{$cariD->hakakses}}</option>
                             <option value="admin">Admin</option>
                             <option value="karyawan">Karyawan</option>
                         </select>
@@ -128,21 +126,13 @@
                                     Browse… <input type="file" id="imgInp" name="pict">
                                 </span>
                             </span>
-                            <input type="text" class="form-control" name="Npict" readonly>
+                            <input type="text" class="form-control" name="Tpict" readonly>
                         </div>
-                        <img id='img-upload' />
+                        <img id='img-upload' src="{{asset('image/foto_petugas')}}/{{$cariD->pict}}" />
                     </div>
                 </div>
             </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" name="password" placeholder="Password" required>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" name="Upassword" placeholder="Repeat Password" required>
-                  </div>
-                </div>
-                <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
+                <input type="submit" class="btn btn-primary btn-user btn-block" value="Edit Account">
                 <hr>
                 <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google

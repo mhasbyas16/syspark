@@ -57,12 +57,12 @@
                    <tr>
                        <td>Photo</td>
                        <td>:</td>
-                       <td>{{$data->pict}}</td>
+                       <td><img src="{{asset('/image/foto_petugas')}}/{{$data->pict}}"  class="img-responsive img-rounded" width="304" height="236" alt="{{$data->pict}}"></td>
                    </tr>
                </table></div>
               <div class="col-sm-4 col-xs-4">
                    <h5 class="h3 mb-4 text-gray-800">History Account </h5>
-                   <div class="overflow-auto">
+                   <div id="overflowTest">
                        <table class="display text-center" border="1" width='100%'>
                            <tr>
                                <th>Tanggal</th>
