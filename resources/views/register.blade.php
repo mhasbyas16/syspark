@@ -142,23 +142,13 @@
                     <input type="password" class="form-control form-control-user" name="Upassword" placeholder="Repeat Password" required>
                   </div>
                 </div>
+                @if($hakakses=='admin')
                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
+                @elseif($hakakses=='karyawan')
+                <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account" disabled>
+                @endif
                 <hr>
-                <a href="index.html" class="btn btn-google btn-user btn-block">
-                  <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
-                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a>
               </form>
-
-              <hr>
-              <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="login.html">Already have an account? Login!</a>
-              </div>
             </div>
           </div>
         </div>

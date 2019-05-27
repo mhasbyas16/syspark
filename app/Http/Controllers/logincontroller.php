@@ -64,18 +64,11 @@ class logincontroller extends Controller
         if ($status =='logout' OR $status =='') {
             return redirect('/');
         }else {
-            Session::get('id_petugas');
-            Session::get('password');
-            Session::get('hakakses');
-            Session::get('nik');
             $nama=Session::get('nama');
-            Session::get('jk');
-            Session::get('agama');
-            Session::get('alamat');
-            Session::get('no_tlfn');
-            Session::get('pict');
+            $pict=Session::get('pict');
             return view('dashboard',[
-                'nama'=>$nama
+                'nama'=>$nama,
+                'pict'=>$pict
             ]);
         }
     }

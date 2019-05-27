@@ -37,7 +37,11 @@
                    <tr>
                        <td>Jenis Kelamin</td>
                        <td>:</td>
-                       <td>{{$data->jk}}</td>
+                       <td>@if($data->jk=='L')
+                            Laki-Laki
+                           @else
+                            Perempuan
+                           @endif</td>
                    </tr>
                    <tr>
                        <td>Agama</td>

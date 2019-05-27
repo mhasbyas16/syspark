@@ -16,13 +16,30 @@ class pegawaicontroller extends Controller
             return redirect('/');
         }else {
         $nama=Session::get('nama');
+        $pict=Session::get('pict');
+        $hakakses=Session::get('hakakses');
+        $id_petugas=Session::get('id_petugas');
         $listP = DB::table('detail_petugas')->get();
-
 
         return view('pegawai',[
             'nama'=>$nama,
-            'listP'=>$listP
+            'pict'=>$pict,
+            'hakakses'=>$hakakses,
+            'listP'=>$listP,
+            'id_petugas'=>$id_petugas
         ]);
+        }
+    }
+
+    public function tambah_petugas(){
+        $status = Session::get('status');
+        $hakakses = Session::get('hakakses');
+        if ($status =='logout' OR $status =='') {
+            return redirect('/');
+        }else {
+            return view('register',[
+                'hakakses'=>$hakakses
+            ]);
         }
     }
     public function detail_petugas($id_petugas){
@@ -31,10 +48,12 @@ class pegawaicontroller extends Controller
             return redirect('/');
         }else {
         $nama=Session::get('nama');
+        $pict=Session::get('pict');
         $data=DB::table('detail_petugas')->where('id_petugas',$id_petugas)->first();
         $log=DB::table('log')->where('id_petugas',$id_petugas)->get();
         return view('detail_petugas',[
             'nama'=>$nama,
+            'pict'=>$pict,
             'data'=>$data,
             'log'=>$log
         ]);
@@ -134,13 +153,14 @@ class pegawaicontroller extends Controller
 
     public function delete_petugas($id_petugas){
         $status = Session::get('status');
+        $hakakses=Session::get('hakakses');
         if ($status =='logout' OR $status =='') {
             return redirect('/');
         }else {
             $cari=DB::table('header_petugas')->join('detail_petugas','header_petugas.id_petugas','=','detail_petugas.id_petugas')->where('header_petugas.id_petugas',$id_petugas);
             $cariC=$cari->count();
             $cariD=$cari->first();
-            if ($cariC>=1) {
+            if ($cariC>=1 AND $hakakses == 'admin') {
                 //log
                 log::insertlog('Hapus Petugas'." ".$cariD->nama,'');
                 //delete
@@ -150,23 +170,29 @@ class pegawaicontroller extends Controller
                 return redirect('/data_petugas')
                     ->with("successalert","Berhasil Menghapus Data Karyawan Dengan Nama"." ".$cariD->nama);
             }else {
-                return redirect('/data_petugas')->with("alert","Data Tidak Ditemukan");
+                return redirect('/data_petugas')->with("alert","Anda Tidak Bisa Menghapus Data Ini");
             }
         }
     }
 
     public function edit_petugas($id_petugas){
         $nama = Session::get('nama');
+        $pict=Session::get('pict');
+        $hakakses=Session::get('hakakses');
         $status = Session::get('status');
         if ($status =='logout' OR $status =='') {
             return redirect('/');
+        }elseif ($hakakses =='karyawan') {
+            return redirect('/data_petugas')->with('alert','Anda Tidak Bisa Mengedit');
         }else {
             $cari=DB::table('header_petugas')->join('detail_petugas','header_petugas.id_petugas','=','detail_petugas.id_petugas')->where('header_petugas.id_petugas',$id_petugas);
             $cariC=$cari->count();
             $cariD=$cari->first();
 
+
             return view('edit_petugas',[
                 'cariD'=>$cariD,
+                'pict'=>$pict,
                 'nama'=>$nama
             ]);
         }

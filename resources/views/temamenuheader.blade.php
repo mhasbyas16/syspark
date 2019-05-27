@@ -73,7 +73,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -85,7 +85,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link">
+        <a class="nav-link" href="{{url('/')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -121,12 +121,7 @@
                         <a class="collapse-item" href="{{url('/tambah_petugas')}}">Tambah Petugas</a>
                 </div>
               </div>
-              <div class="panel panel-default">
-                    <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#kendaraan">Kendaraan</a>
-                <div id="kendaraan" class="panel-collapse collapse in">
-                        <a class="collapse-item" href="{{url('/data_petugas')}}">1</a>
-                </div>
-              </div>
+              <a class="collapse-item" href="{{url('/data_kendaraan')}}">Kendaraan</a>
               <div class="panel panel-default">
                     <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#parkir">Parkir</a>
                 <div id="parkir" class="panel-collapse collapse in">
@@ -338,7 +333,11 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$nama}}</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                @if($pict=='')
+                <img class="img-profile rounded-circle" src="{{asset('/img/close.png')}}">
+                @else
+                <img class="img-profile rounded-circle" src="{{asset('/image/foto_petugas')}}/{{$pict}}">
+                @endif
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

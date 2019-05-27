@@ -82,7 +82,12 @@
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <select class="form-control" name="jk" required>
-                            <option selected hidden value="{{$cariD->jk}}">{{$cariD->jk}}</option>
+                            <option selected hidden value="{{$cariD->jk}}">
+                                @if($cariD->jk=='L')
+                                    Laki-Laki
+                                @else
+                                    Perempuan
+                                @endif</option>
                             <option value="L">Laki-Laki</option>
                             <option value="P">Perempuan</option>
                         </select>
@@ -110,7 +115,12 @@
                     </div>
                     <div class="col-sm-6">
                         <select class="form-control" name="hakakses" required>
-                            <option selected hidden value="{{$cariD->hakakses}}">{{$cariD->hakakses}}</option>
+                            <option selected hidden value="{{$cariD->hakakses}}">
+                            @if($cariD->hakakses=='admin')
+                                Admin
+                            @else
+                                Karyawan
+                            @endif</option>
                             <option value="admin">Admin</option>
                             <option value="karyawan">Karyawan</option>
                         </select>

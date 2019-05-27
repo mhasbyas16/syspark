@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Data Employee | Klik for Details</h1>
+                <h1 class="h3 mb-4 text-gray-800">Data Kendaraan | <a href="{{url('/tambah_kendaraan')}}">Tambah Kendaraan</a></h1>
             </div>
             <div class="row justify-content-center">
                 @if (\Session::has('successalert'))
@@ -21,39 +21,32 @@
           <table id="pegawai" class="display text-center nowrap" cellspacing="0" width="100%">
                   <thead>
                       <tr>
-                          <th>ID Petugas</th>
-                          <th>Nama</th>
-                          <th>Email</th>
-                          <th>No Telepon</th>
+                          <th>ID Kendaraan</th>
+                          <th>Merek Kendaraan</th>
+                          <th>Jenis Kendaraan</th>
                           <th>Aksi</th>
                       </tr>
                   </thead>
 
                   <tfoot>
                       <tr>
-                          <th>ID Petugas</th>
-                          <th>Nama</th>
-                          <th>Email</th>
-                          <th>No Telepon</th>
+                          <th>ID Kendaraan</th>
+                          <th>Merek Kendaraan</th>
+                          <th>Jenis Kendaraan</th>
                           <th>Aksi</th>
                       </tr>
                   </tfoot>
 
                   <tbody>
-                    @foreach($listP as $listP)
+                    @foreach($data as $data)
                       <tr>
-                          <td>{{$listP->id_petugas}}</td>
-                          <td><a href="{{url('/detail_petugas')}}/{{$listP->id_petugas}}"> {{$listP->nama}}</a></td>
-                          <td>{{$listP->email}}</td>
-                          <td>{{$listP->no_tlfn}}</td>
-                          @if($hakakses=='admin')
-                            @if($id_petugas==$listP->id_petugas)
-                             <td></td>
-                            @else
-                            <td><a href="{{url('/edit_petugas')}}/{{$listP->id_petugas}}"><i class="fas fa-user-edit text-red" style="color:green;font-size:20px;"></i></a> &nbsp;&nbsp;&nbsp;
-                                <a href="{{url('/delete_petugas')}}/{{$listP->id_petugas}}" onclick="return confirm('Are You Sure Delete {{$listP->nama}} ?')"><i class="fas fa-trash-alt" style="color:red;font-size:20px;"></i></a>
-                            </td>
-                            @endif
+                          <td>{{$data->id_jenisk}}</td>
+                          <td>{{$data->merk_k}}</td>
+                          <td>{{$data->jenis_k}}</td>
+                           @if($hakakses=='admin')
+                          <td><a href="{{url('/edit_kendaraan')}}/{{$data->id_jenisk}}"><i class="fas fa-user-edit text-red" style="color:green;font-size:20px;"></i></a> &nbsp;&nbsp;&nbsp;
+                              <a href="{{url('/delete_kendaraan')}}/{{$data->id_jenisk}}" onclick="return confirm('Apakah Kamu Yakin Mengahapus Data ID = {{$data->id_jenisk}} ?')"><i class="fas fa-trash-alt" style="color:red;font-size:20px;"></i></a>
+                          </td>
                           @else
                           <td></td>
                           @endif

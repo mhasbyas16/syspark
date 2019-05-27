@@ -6,17 +6,20 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Session;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    
+
 	public function Dashboard(){
 		return view('dashboard');
 	}
 	public function Mainmenu(){
-		return view('main');
+        $nama=Session::get('nama');
+        $pict=Session::get('pict');
+		return view('main',['nama'=>$nama,'pict'=>$pict]);
 	}
 	public function Datapegawai(){
 		return view('pegawai');

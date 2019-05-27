@@ -28,10 +28,17 @@ Route::get('/detail_petugas/{id_petugas}','pegawaicontroller@detail_petugas');
 Route::post('/simpan_petugas','pegawaicontroller@simpan_petugas');
 Route::get('/delete_petugas/{id_petugas}','pegawaicontroller@delete_petugas');
 Route::get('/edit_petugas/{id_petugas}','pegawaicontroller@edit_petugas');
-Route::post('//simpan_edit_petugas','pegawaicontroller@simpan_edit_petugas');
-Route::get('/tambah_petugas',function(){
-    return view('register');
-});
+Route::post('/simpan_edit_petugas','pegawaicontroller@simpan_edit_petugas');
+Route::get('/tambah_petugas','pegawaicontroller@tambah_petugas');
+//end
+
+//kendaraan Controller
+Route::get('/data_kendaraan','kendaraancontroller@data_kendaraan');
+Route::get('/tambah_kendaraan','kendaraancontroller@tambah_kendaraan');
+Route::get('/delete_kendaraan/{id_jenisk}','kendaraancontroller@delete_kendaraan');
+Route::get('/edit_kendaraan/{id_jenisk}','kendaraancontroller@edit_kendaraan');
+Route::post('/simpan_edit_kendaraan','kendaraancontroller@simpan_edit_kendaraan');
+Route::post('/simpan_kendaraan','kendaraancontroller@simpan_kendaraan');
 //end
 
 Route::get('/dash','Controller@Dashboard');//setelah login masuk dashboard
