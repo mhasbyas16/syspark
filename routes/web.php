@@ -32,6 +32,15 @@ Route::post('/simpan_edit_petugas','pegawaicontroller@simpan_edit_petugas');
 Route::get('/tambah_petugas','pegawaicontroller@tambah_petugas');
 //end
 
+//biaya Controller
+Route::get('/data_biaya','biayacontroller@biaya');
+Route::post('/simpan_biaya','biayacontroller@simpan_biaya');
+Route::get('/tambah_biaya','biayacontroller@tambah_biaya');
+Route::get('/delete_biaya/{id_biaya}','biayacontroller@delete_biaya');
+Route::get('/edit_biaya/{id_biaya}/{id_jenisk}','biayacontroller@edit_biaya');
+Route::post('/simpan_edit_biaya','biayacontroller@simpan_edit_biaya');
+//end
+
 //kendaraan Controller
 Route::get('/data_kendaraan','kendaraancontroller@data_kendaraan');
 Route::get('/tambah_kendaraan','kendaraancontroller@tambah_kendaraan');

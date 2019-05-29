@@ -44,7 +44,7 @@
                           <td>{{$data->merk_k}}</td>
                           <td>{{$data->jenis_k}}</td>
                            @if($hakakses=='admin')
-                          <td><a href="{{url('/edit_kendaraan')}}/{{$data->id_jenisk}}"><i class="fas fa-user-edit text-red" style="color:green;font-size:20px;"></i></a> &nbsp;&nbsp;&nbsp;
+                          <td><a href="{{url('/edit_kendaraan')}}/{{$data->id_jenisk}}"><i class="fas fa-edit" style="color:green;font-size:20px;"></i></a> &nbsp;&nbsp;&nbsp;
                               <a href="{{url('/delete_kendaraan')}}/{{$data->id_jenisk}}" onclick="return confirm('Apakah Kamu Yakin Mengahapus Data ID = {{$data->id_jenisk}} ?')"><i class="fas fa-trash-alt" style="color:red;font-size:20px;"></i></a>
                           </td>
                           @else

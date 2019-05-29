@@ -125,7 +125,7 @@
               <div class="panel panel-default">
                     <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#parkir">Parkir</a>
                 <div id="parkir" class="panel-collapse collapse in">
-                        <a class="collapse-item" href="{{url('/data_petugas')}}">1</a>
+                        <a class="collapse-item" href="{{url('/data_biaya')}}">Biaya Parkir</a>
                 </div>
               </div>
               <div class="panel panel-default">

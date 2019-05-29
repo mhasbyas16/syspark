@@ -72,9 +72,9 @@
                   </div>
                 </div>
                 @if($hakakses=='admin')
-                <input type="submit" class="btn btn-primary btn-user btn-block" value="Tambah">
+                <input type="submit" class="btn btn-primary btn-user btn-block" value="Edit">
                 @elseif($hakakses=='karyawan')
-                <input type="submit" class="btn btn-primary btn-user btn-block" value="Tambah" disabled>
+                <input type="submit" class="btn btn-primary btn-user btn-block" value="Edit" disabled>
                 @endif
             </div>
           </div>
