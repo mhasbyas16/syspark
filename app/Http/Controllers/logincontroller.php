@@ -22,12 +22,11 @@ class logincontroller extends Controller
         $data = DB::table('header_petugas')->join('detail_petugas','header_petugas.id_petugas','=','detail_petugas.id_petugas')->where('header_petugas.id_petugas',$username);
         $jmlD = $data->count();
         $isiD = $data->first();
-        $logS=DB::table('header_petugas')->select('status')->where('id_petugas',$username)->first();
 
         if ($jmlD>=1) {
             if ($isiD->id_petugas==$username) {
                 if ($isiD->password==$password) {
-                    if ($logS->status=='login') {
+                    if ($isiD->status=="login") {
                         return redirect('/')->with('alert','Your Account Has Login Another Place, Call Admnistrator For Help');
                     }else{
                         DB::table('header_petugas')->where('id_petugas',$username)->update(['status'=>'login']);
