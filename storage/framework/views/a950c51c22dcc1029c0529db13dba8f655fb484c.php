@@ -1,5 +1,4 @@
-@extends('temamenuheader')
-@section('isi')
+<?php $__env->startSection('isi'); ?>
 
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
@@ -50,19 +49,19 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    @foreach($reportm as $reportm)
+                    <?php $__currentLoopData = $reportm; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reportm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td>{{$reportm->id_petugas}}</td>
-                        <td>{{$reportm->nik}}</td>
-                        <td>{{$reportm->nama}}</td>
-                        <td>{{$reportm->status}}</td>
-                        <td>{{$reportm->email}}</td>
-                        <td>{{$reportm->jk}}</td>
-                        <td>{{$reportm->agama}}</td>
-                        <td>{{$reportm->alamat}}</td>
-                        <td>{{$reportm->no_tlfn}}</td>
+                        <td><?php echo e($reportm->id_petugas); ?></td>
+                        <td><?php echo e($reportm->nik); ?></td>
+                        <td><?php echo e($reportm->nama); ?></td>
+                        <td><?php echo e($reportm->status); ?></td>
+                        <td><?php echo e($reportm->email); ?></td>
+                        <td><?php echo e($reportm->jk); ?></td>
+                        <td><?php echo e($reportm->agama); ?></td>
+                        <td><?php echo e($reportm->alamat); ?></td>
+                        <td><?php echo e($reportm->no_tlfn); ?></td>
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
                 </table>
 
@@ -114,4 +113,6 @@
   });
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('temamenuheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\syspark\resources\views/monthly.blade.php ENDPATH**/ ?>
