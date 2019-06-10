@@ -2,163 +2,289 @@
 @section('isi')
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Cards</h1>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-in-tab" data-toggle="tab" href="#nav-in" role="tab" aria-controls="nav-in" aria-selected="true">In</a>
+            <a class="nav-item nav-link" id="nav-out-tab" data-toggle="tab" href="#nav-out" role="tab" aria-controls="nav-out" aria-selected="false">Out</a>
+            <a class="nav-item nav-link" id="nav-transaction-tab" data-toggle="tab" href="#nav-transaction" role="tab" aria-controls="nav-transaction" aria-selected="false">Data Transaction</a>
           </div>
-
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-in" role="tabpanel" aria-labelledby="nav-in-tab">
+            <form method="post" class="form-inline" action="{{ url('/park')}}">
+              {{csrf_field()}}
+              <input type="hidden" name="action" class="col-md-11" value="in">
+              <input type="hidden" name="id" class="col-md-11" value="@if($id > 0) {{ $id +1 }} @else 1 @endif">
+              <div class="col-md-5 pt-4 pl-4">
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Id. Parkir
+                  </div>
+                  <div class="col-md-8">
+                    : @if($id_parkir > 0) {{ $id_parkir +1 }} @else 1 @endif
+                    <input type="hidden" name="id_parkir" class="col-md-11" value="@if($id_parkir > 0) {{ $id_parkir +1 }} @else 1 @endif">
+                  </div>
+                </div>
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Tanggal
+                  </div>
+                  <div class="col-md-8">
+                    : {{date('d-m-Y')}}
+                    <input type="hidden" name="tanggal" class="col-md-11" value="{{date('d-m-Y')}}">
+                  </div>
+                </div>
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Jam
+                  </div>
+                  <div class="col-md-8">
+                    : {{date('H:i:s')}}
+                    <input type="hidden" name="jam" class="col-md-11" value="{{date('H:i:s')}}">
+                  </div>
+                </div>
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    No. Plat
+                  </div>
+                  <div class="col-md-8">
+                    : <input type="text" name="no_plat" class="col-md-11">
+                  </div>
+                </div>
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Jenis Kendaraan
+                  </div>
+                  <div class="col-md-8">
+                    : 
+                    <select name="id_jenisk" class="col-md-11 text-capitalize">
+                      @foreach ($tbl4 as $t4)
+                        <option value="{{ $t4->id_jenisk }}">{{ $t4->jenis_k }}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="col-md-5 pt-4">
+                <div class="col-md-12"  style="height: 220px">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label>Upload Image</label>
+                          <div class="input-group">
+                              <span class="input-group-btn">
+                                  <span class="btn btn-default btn-file">
+                                      Browse… <input type="file" id="imgInp" name="pict">
+                                  </span>
+                              </span>
+                              <input type="text" class="form-control" name="Npict" readonly>
                           </div>
-                        </div>
+                          <img id='img-upload' />
                       </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+              <div class="col-md-12">
+                <input type="submit" name="submit" value="Masuk" class="btn btn-primary col-md-12">
+              </div>
+            </form>
 
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="col-md-12 mt-5">
+              <table id="masuk" class="display text-center" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                          <th>ID Parkir</th>
+                          <th>Tanggal</th>
+                          <th>Jam Masuk</th>
+                          <th>Foto</th>
+                      </tr>
+                  </thead>
+
+                  <tfoot>
+                      <tr>
+                          <th>ID Parkir</th>
+                          <th>Tanggal</th>
+                          <th>Jam Masuk</th>
+                          <th>Foto</th>
+                      </tr>
+                  </tfoot>
+
+                  <tbody>
+                    @foreach($tbl as $t)
+                      <tr>
+                          <td>{{$t->id_parkir}}</td>
+                          <td>{{$t->tanggal_masuk}}</td>
+                          <td>{{$t->jam_masuk}}</td>
+                          <td>{{$t->foto}}</td>
+                      </tr>
+                     @endforeach
+                  </tbody>
+              </table>
             </div>
           </div>
-
-          <div class="row">
-
-            <div class="col-lg-6">
-
-              <!-- Default Card Example -->
-              <div class="card mb-4">
-                <div class="card-header">
-                  Default Card Example
-                </div>
-                <div class="card-body">
-                  This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.
-                </div>
-              </div>
-
-              <!-- Basic Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
-                </div>
-                <div class="card-body">
-                  The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-lg-6">
-
-              <!-- Dropdown Card Example -->
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Dropdown Card Example</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+          <div class="tab-pane fade" id="nav-out" role="tabpanel" aria-labelledby="nav-out-tab">
+            <form method="post" class="form-inline"action="{{ url('park') }}">
+              <input type="hidden" name="action" class="col-md-11" value="out">
+              <div class="col-md-6 pt-4 pl-4">
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Tanggal
+                  </div>
+                  <div class="col-md-8">
+                    : {{date('d-m-Y')}}
+                    <input type="hidden" name="tanggal" class="col-md-11" value="{{date('d-m-Y')}}">
                   </div>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  Dropdown menus can be placed in the card header in order to extend the functionality of a basic card. In this dropdown card example, the Font Awesome vertical ellipsis icon in the card header can be clicked on in order to toggle a dropdown menu.
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Jam
+                  </div>
+                  <div class="col-md-8">
+                    : {{date('H:i:s')}}
+                    <input type="hidden" name="jam" class="col-md-11" value="{{date('H:i:s')}}">
+                  </div>
                 </div>
-              </div>
-
-              <!-- Collapsable Card Example -->
-              <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardExample">
-                  <div class="card-body">
-                    This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Id. Operator
+                  </div>
+                  <div class="col-md-8">
+                    : {{Session::get('id_petugas')}}
+                    <input type="hidden" name="id_petugas" class="col-md-11" disabled="" value="{{Session::get('id_petugas')}}">
+                  </div>
+                </div>
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Id. Parkir
+                  </div>
+                  <div class="col-md-8">
+                    : <input type="text" name="id_parkir" class="col-md-11">
+                  </div>
+                </div>
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    No. Plat
+                  </div>
+                  <div class="col-md-8">
+                    : <input type="text" name="no_plat" class="col-md-11">
+                  </div>
+                </div>
+                <div class="form-group pb-2 form-inline">
+                  <div class="col-md-4 text-md-left">
+                    Id. Member
+                  </div>
+                  <div class="col-md-8">
+                    : <input type="text" name="id_member" class="col-md-11">
                   </div>
                 </div>
               </div>
+              <div class="col-md-5 pt-4">
+                <div class="col-md-12"  style="height: 220px">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label>Upload Image</label>
+                          <div class="input-group">
+                              <span class="input-group-btn">
+                                  <span class="btn btn-default btn-file">
+                                      Browse… <input type="file" id="imgInp" name="pict">
+                                  </span>
+                              </span>
+                              <input type="text" class="form-control" name="Npict" readonly>
+                          </div>
+                          <img id='img-upload' />
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  Rp. -
+                </div>
+              </div>
+              <div class="col-md-6">
+                <input type="button" name="action" value="Proses" class="btn btn-success col-md-12">
+              </div>
+              <div class="col-md-6">
+                <input type="submit" name="action" value="Keluar" class="btn btn-primary col-md-12">
+              </div>
+            </form>
 
+            <div class="col-md-12 mt-5">
+              <table id="keluar" class="display text-center" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                          <th>ID Parkir</th>
+                          <th>Tanggal</th>
+                          <th>Jam Keluar</th>
+                          <th>Foto</th>
+                      </tr>
+                  </thead>
+
+                  <tfoot>
+                      <tr>
+                          <th>ID Parkir</th>
+                          <th>Tanggal</th>
+                          <th>Jam Keluar</th>
+                          <th>Foto</th>
+                      </tr>
+                  </tfoot>
+
+                  <tbody>
+                    @foreach($tbl as $t)
+                      <tr>
+                          <td>{{$t->id_parkir}}</td>
+                          <td>{{$t->tanggal_masuk}}</td>
+                          <td>{{$t->jam_masuk}}</td>
+                          <td>{{$t->foto}}</td>
+                      </tr>
+                     @endforeach
+                  </tbody>
+              </table>
             </div>
-
           </div>
+          <div class="tab-pane fade" id="nav-transaction" role="tabpanel" aria-labelledby="nav-transaction-tab">
+            <div class="col-md-12 mt-3">
+              <table id="transakiParkir" class="display text-center" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID Petugas</th>
+                        <th>Nama</th>
+                        <th>NIK</th>
+                        <th>Gender</th>
+                        <th>Agama</th>
+                        <th>Alamat</th>
+                        <th>No Telepon</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
 
+                <tfoot>
+                    <tr>
+                        <th>ID Petugas</th>
+                        <th>Nama</th>
+                        <th>NIK</th>
+                        <th>Gender</th>
+                        <th>Agama</th>
+                        <th>Alamat</th>
+                        <th>No Telepon</th>
+                        <th>Foto</th>
+                    </tr>
+                </tfoot>
+
+                <tbody>
+                  @foreach($tbl2 as $t2)
+                    <tr>
+                        <td>{{$t2->id_petugas}}</td>
+                        <td>{{$t2->nama}}</td>
+                        <td>{{$t2->nik}}</td>
+                        <td>{{$t2->jk}}</td>
+                        <td>{{$t2->agama}}</td>
+                        <td>{{$t2->alamat}}</td>
+                        <td>{{$t2->no_tlfn}}</td>
+                        <td>{{$t2->pict}}</td>
+                    </tr>
+                   @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
         <!-- /.container-fluid -->
 
