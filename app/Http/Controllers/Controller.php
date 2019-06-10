@@ -17,13 +17,14 @@ use DB;
 use Config;
 use App\header_parkir;
 use App\detail_masuk;
+use App\detail_petugas;
 use File;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    
+
 	public function Dashboard(){
 		return view('dashboard');
 	}
@@ -31,7 +32,8 @@ class Controller extends BaseController
 		$table = DB::table('header_parkir')->select('header_parkir.id_parkir', 'header_parkir.id_petugas', 'detail_masuk.tanggal_masuk', 'detail_masuk.jam_masuk', 'detail_masuk.foto')->join('detail_masuk', 'header_parkir.id_parkir', '=', 'detail_masuk.id_parkir')->get();
 		$table2 = DB::table('header_parkir')->select('header_parkir.id_parkir', 'header_parkir.id_petugas', 'detail_keluar.tanggal_keluar', 'detail_keluar.jam_keluar', 'detail_keluar.foto')->join('detail_keluar', 'header_parkir.id_parkir', '=', 'detail_keluar.id_parkir')->get();
 		$table3 = DB::table('header_parkir')->select('header_parkir.id_parkir', 'header_parkir.id_petugas', 'detail_keluar.tanggal_keluar', 'detail_keluar.jam_keluar', 'detail_keluar.foto')->join('detail_keluar', 'header_parkir.id_parkir', '=', 'detail_keluar.id_parkir')->get();
-
+        $nama=Session::get('nama');
+        $pict=Session::get('pict');
 
 		$table4 = DB::table('jenis_kendaraan')->get();
 
@@ -43,7 +45,9 @@ class Controller extends BaseController
 			'tbl3' => $table3,
 			'tbl4' => $table4,
 			'id_parkir' => $id_parkir,
-			'id' => $id
+			'id' => $id,
+            'pict'=>$pict,
+            'nama'=>$nama
 		]);
 	}
 
@@ -106,11 +110,15 @@ class Controller extends BaseController
 
 	public function viewProfile($a){
 		$aksi = $a;
+        $nama=Session::get('nama');
+        $pict=Session::get('pict');
 		$id = Session::get('id_petugas');
 		$table = DB::table('detail_petugas')->select('detail_petugas.id_petugas', 'nik', 'nama', 'detail_petugas.status as s', 'no_tlfn', 'jumlah_anak', 'alamat', 'email', 'jk', 'password', 'agama', 'pict', 'header_petugas.status as st', 'hakakses')->join('header_petugas', 'detail_petugas.id_petugas', '=', 'header_petugas.id_petugas')->where('detail_petugas.id_petugas', '=', $id)->get();
 		return view('profileView', [
 			'tbl' => $table,
-			'aksi' => $aksi
+			'aksi' => $aksi,
+            'pict'=>$pict,
+            'nama'=>$nama
 		]);
 	}
 
@@ -137,6 +145,7 @@ class Controller extends BaseController
 				'jk' => $jk
 			];
             detail_petugas::where('id_petugas', $id_petugas)->update($data);
+            return redirect('/profile/view');
 		}
 	}
 

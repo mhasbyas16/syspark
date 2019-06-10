@@ -50,6 +50,9 @@ Route::post('/simpan_edit_kendaraan','kendaraancontroller@simpan_edit_kendaraan'
 Route::post('/simpan_kendaraan','kendaraancontroller@simpan_kendaraan');
 //end
 
+Route::get('/profile/{a}','Controller@viewProfile');//akses profile menu
+Route::post('/saveProfile','Controller@saveProfile');//akses data profile
+
 Route::get('/dash','Controller@Dashboard');//setelah login masuk dashboard
 Route::get('/main','Controller@Mainmenu');//akses main menu
 Route::get('/gawai','Controller@Datapegawai');//akses data pegawai

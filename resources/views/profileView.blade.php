@@ -53,7 +53,7 @@
 						<label>Agama</label>
 						<select class="form-control" name="agama" @if ($aksi == "view") disabled="" @endif>
 	                        <option selected hidden value="{{$t->agama}}">{{ucfirst($t->agama)}}</option>
-							<option value=islam">Islam</option>
+							<option value="islam">Islam</option>
 							<option value="kristen">Kristen</option>
 							<option value="hindu">Hindu</option>
 							<option value="buddha">Buddha</option>
@@ -62,7 +62,7 @@
 					</div>
 					<div class="form-group">
 						<label>Alamat</label>
-						<textarea class="form-control" value="{{ $t->alamat }}" @if ($aksi == "view") disabled="" @endif>{{ $t->alamat }}</textarea>
+						<textarea class="form-control" name="alamat" value="{{ $t->alamat }}" @if ($aksi == "view") disabled="" @endif>{{ $t->alamat }}</textarea>
 					</div>
 					<div class="form-group">
 						<label>No. Telepon</label>
@@ -77,7 +77,7 @@
 						<label>Password Lama</label>
 						<input type="password" name="password_lama" class="form-control" @if ($aksi == "view") value="{{ $t->password }}" disabled=""@endif>
 					</div>
-						@if ($aksi == "edit") 
+						@if ($aksi == "edit")
 						<div class="form-group">
 							<label>Password Baru</label>
 							<input type="password" name="password_baru1" class="form-control">

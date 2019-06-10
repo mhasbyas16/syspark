@@ -12,34 +12,34 @@
   <title>SysPark</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{url('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="<?php echo e(url('vendor/fontawesome-free/css/all.min.css')); ?>" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{url('css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="<?php echo e(url('css/sb-admin-2.min.css')); ?>" rel="stylesheet">
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{url('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="<?php echo e(url('vendor/jquery/jquery.min.js')); ?>"></script>
   <!-- Custom scripts for all pages-->
-  <script src="{{url('js/sb-admin-2.min.js')}}"></script>
+  <script src="<?php echo e(url('js/sb-admin-2.min.js')); ?>"></script>
 
   <!--Datatable-->
-  <link href="{{url('datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+  <link href="<?php echo e(url('datatable/css/jquery.dataTables.min.css')); ?>" rel="stylesheet">
 
-  <script type="text/javascript" language="javascript" src="{{url('datatable/js/jquery.dataTables.min.js')}}"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/jquery.dataTables.min.js')); ?>"></script>
   <!--Button-->
-  <link href="{{url('datatable/css/buttons.dataTables.min.css')}}" rel="stylesheet">
+  <link href="<?php echo e(url('datatable/css/buttons.dataTables.min.css')); ?>" rel="stylesheet">
 
-  <script type="text/javascript" language="javascript" src="{{url('datatable/js/dataTables.buttons.min.js')}}"></script>
-  <script type="text/javascript" language="javascript" src="{{url('datatable/js/buttons.flash.min.js')}}"></script>
-  <script type="text/javascript" language="javascript" src="{{url('datatable/js/jszip.min.js')}}"></script>
-  <script type="text/javascript" language="javascript" src="{{url('datatable/js/pdfmake.min.js')}}"></script>
-  <script type="text/javascript" language="javascript" src="{{url('datatable/js/vfs_fonts.js')}}"></script>
-  <script type="text/javascript" language="javascript" src="{{url('datatable/js/buttons.html5.min.js')}}"></script>
-  <script type="text/javascript" language="javascript" src="{{url('datatable/js/buttons.print.min.js')}}"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/dataTables.buttons.min.js')); ?>"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/buttons.flash.min.js')); ?>"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/jszip.min.js')); ?>"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/pdfmake.min.js')); ?>"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/vfs_fonts.js')); ?>"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/buttons.html5.min.js')); ?>"></script>
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/buttons.print.min.js')); ?>"></script>
   <!--respnsive datatables-->
-   <link href="{{url('datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
-   <script type="text/javascript" language="javascript" src="{{url('datatable/js/dataTables.responsive.min.js')}}"></script>
+   <link href="<?php echo e(url('datatable/css/responsive.dataTables.min.css')); ?>" rel="stylesheet">
+   <script type="text/javascript" language="javascript" src="<?php echo e(url('datatable/js/dataTables.responsive.min.js')); ?>"></script>
 
   <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
@@ -73,7 +73,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo e(url('/')); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -85,7 +85,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{url('/')}}">
+        <a class="nav-link" href="<?php echo e(url('/')); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -100,7 +100,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="{{url('/main')}}">
+        <a class="nav-link" href="<?php echo e(url('/main')); ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Main</span>
         </a>
@@ -117,21 +117,21 @@
               <div class="panel panel-default">
                     <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#petugas">Petugas</a>
                 <div id="petugas" class="panel-collapse collapse in">
-                        <a class="collapse-item" href="{{url('/data_petugas')}}">Data Petugas</a>
-                        <a class="collapse-item" href="{{url('/tambah_petugas')}}">Tambah Petugas</a>
+                        <a class="collapse-item" href="<?php echo e(url('/data_petugas')); ?>">Data Petugas</a>
+                        <a class="collapse-item" href="<?php echo e(url('/tambah_petugas')); ?>">Tambah Petugas</a>
                 </div>
               </div>
-              <a class="collapse-item" href="{{url('/data_kendaraan')}}">Kendaraan</a>
+              <a class="collapse-item" href="<?php echo e(url('/data_kendaraan')); ?>">Kendaraan</a>
               <div class="panel panel-default">
                     <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#parkir">Parkir</a>
                 <div id="parkir" class="panel-collapse collapse in">
-                        <a class="collapse-item" href="{{url('/data_biaya')}}">Biaya Parkir</a>
+                        <a class="collapse-item" href="<?php echo e(url('/data_biaya')); ?>">Biaya Parkir</a>
                 </div>
               </div>
               <div class="panel panel-default">
                     <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#member">Member</a>
                 <div id="member" class="panel-collapse collapse in">
-                        <a class="collapse-item" href="{{url('/data_petugas')}}">1</a>
+                        <a class="collapse-item" href="<?php echo e(url('/data_petugas')); ?>">1</a>
                 </div>
               </div>
             </div>
@@ -147,16 +147,16 @@
         </a>
         <div id="collapsePagess" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{url('/daily')}}">Daily</a>
-            <a class="collapse-item" href="{{url('/monthly')}}">Monthly</a>
-            <a class="collapse-item" href="{{url('/chart')}}">Chart</a>
+            <a class="collapse-item" href="<?php echo e(url('/daily')); ?>">Daily</a>
+            <a class="collapse-item" href="<?php echo e(url('/monthly')); ?>">Monthly</a>
+            <a class="collapse-item" href="<?php echo e(url('/chart')); ?>">Chart</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="{{url('/setting')}}">
+        <a class="nav-link" href="<?php echo e(url('/setting')); ?>">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Setting</span>
         </a>
@@ -332,16 +332,16 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$nama}}</span>
-                @if($pict=='')
-                <img class="img-profile rounded-circle" src="{{asset('/img/close.png')}}">
-                @else
-                <img class="img-profile rounded-circle" src="{{asset('/image/foto_petugas')}}/{{$pict}}">
-                @endif
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo e($nama); ?></span>
+                <?php if($pict==''): ?>
+                <img class="img-profile rounded-circle" src="<?php echo e(asset('/img/close.png')); ?>">
+                <?php else: ?>
+                <img class="img-profile rounded-circle" src="<?php echo e(asset('/image/foto_petugas')); ?>/<?php echo e($pict); ?>">
+                <?php endif; ?>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ url('/profile/view') }}">
+                <a class="dropdown-item" href="<?php echo e(url('/profile/view')); ?>">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -366,7 +366,7 @@
         </nav>
         <!-- End of Topbar -->
 
-@yield('isi')
+<?php echo $__env->yieldContent('isi'); ?>
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -402,23 +402,24 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="{{url('/logout')}}">Logout</a>
+          <a class="btn btn-primary" href="<?php echo e(url('/logout')); ?>">Logout</a>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="{{url('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="<?php echo e(url('vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="{{url('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+  <script src="<?php echo e(url('vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
   <!-- Page level plugins -->
-  <script src="{{url('vendor/chart.js/Chart.min.js')}}"></script>
+  <script src="<?php echo e(url('vendor/chart.js/Chart.min.js')); ?>"></script>
 
   <!-- Page level custom scripts -->
-  <script src="{{url('js/demo/chart-area-demo.js')}}"></script>
-  <script src="{{url('js/demo/chart-pie-demo.js')}}"></script>
+  <script src="<?php echo e(url('js/demo/chart-area-demo.js')); ?>"></script>
+  <script src="<?php echo e(url('js/demo/chart-pie-demo.js')); ?>"></script>
 
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\syspark\resources\views/temamenuheader.blade.php ENDPATH**/ ?>
