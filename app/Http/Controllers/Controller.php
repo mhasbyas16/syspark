@@ -162,13 +162,20 @@ class Controller extends BaseController
 		return view('member');
 	}
 	public function Reportdaily(){
-		return view('daily');
-	}
-	public function Reportmonthly(){
-		return view('monthly');
+        $nama=Session::get('nama');
+        $pict=Session::get('pict');
+		return view('daily',[
+            'pict'=>$pict,
+            'nama'=>$nama
+        ]);
 	}
 	public function Reportchart(){
-		return view('chart');
+        $nama=Session::get('nama');
+        $pict=Session::get('pict');
+		return view('chart',[
+            'pict'=>$pict,
+            'nama'=>$nama
+        ]);
 	}
 	public function Settingan(){
 		return view('setting');

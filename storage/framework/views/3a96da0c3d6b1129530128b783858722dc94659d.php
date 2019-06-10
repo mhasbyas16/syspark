@@ -75,9 +75,9 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo e(url('/')); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <i class="fas fa-parking" style="color: white;"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SysPark <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3" style="color: white;">SysPark</div>
       </a>
 
       <!-- Divider -->
@@ -408,12 +408,17 @@
     </div>
   </div>
 
+  <!-- Bootstrap core JavaScript-->
+<script src="<?php echo e(url('vendor/jquery/jquery.min.js')); ?>"></script>
   <script src="<?php echo e(url('vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="<?php echo e(url('vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
   <!-- Page level plugins -->
   <script src="<?php echo e(url('vendor/chart.js/Chart.min.js')); ?>"></script>
+
+  <!-- Custom scripts for all pages-->
+<script src="<?php echo e(url('js/sb-admin-2.min.js')); ?>"></script>
 
   <!-- Page level custom scripts -->
   <script src="<?php echo e(url('js/demo/chart-area-demo.js')); ?>"></script>
