@@ -75,9 +75,9 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <i class="fas fa-parking" style="color: white;"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SysPark <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3" style="color: white;">SysPark</div>
       </a>
 
       <!-- Divider -->
@@ -349,9 +349,9 @@
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{url('/history')}}">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
+                  History Log
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -408,12 +408,17 @@
     </div>
   </div>
 
+  <!-- Bootstrap core JavaScript-->
+<script src="{{url('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{url('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="{{url('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
   <!-- Page level plugins -->
   <script src="{{url('vendor/chart.js/Chart.min.js')}}"></script>
+
+  <!-- Custom scripts for all pages-->
+<script src="{{url('js/sb-admin-2.min.js')}}"></script>
 
   <!-- Page level custom scripts -->
   <script src="{{url('js/demo/chart-area-demo.js')}}"></script>

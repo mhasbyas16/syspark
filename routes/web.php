@@ -50,8 +50,12 @@ Route::post('/simpan_edit_kendaraan','kendaraancontroller@simpan_edit_kendaraan'
 Route::post('/simpan_kendaraan','kendaraancontroller@simpan_kendaraan');
 //end
 
+Route::get('/history','LogController@Log');//histroy
+
 Route::get('/profile/{a}','Controller@viewProfile');//akses profile menu
 Route::post('/saveProfile','Controller@saveProfile');//akses data profile
+
+Route::get('/monthly','monthly@Reportmonthly');//akses data pegawai
 
 Route::get('/dash','Controller@Dashboard');//setelah login masuk dashboard
 Route::get('/main','Controller@Mainmenu');//akses main menu
@@ -60,6 +64,5 @@ Route::get('/kendaraan','Controller@Datakendaraan');//akses data kendaraan
 Route::get('/parkir','Controller@Dataparkir');//akses data parkir
 Route::get('/member','Controller@Datamember');//akses data member
 Route::get('/daily','Controller@Reportdaily');//akses main menu
-Route::get('/monthly','Controller@Reportmonthly');//akses data pegawai
 Route::get('/chart','Controller@Reportchart');//akses data kendaraan
 Route::get('/setting','Controller@Settingan');//akses data parkir

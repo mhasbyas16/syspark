@@ -1,5 +1,4 @@
-@extends('temamenuheader')
-@section('isi')
+<?php $__env->startSection('isi'); ?>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -506,4 +505,6 @@
       </div>
       <!-- End of Main Content -->
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('temamenuheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\syspark\resources\views/daily.blade.php ENDPATH**/ ?>
