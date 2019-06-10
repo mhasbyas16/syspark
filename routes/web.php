@@ -50,6 +50,8 @@ Route::post('/simpan_edit_kendaraan','kendaraancontroller@simpan_edit_kendaraan'
 Route::post('/simpan_kendaraan','kendaraancontroller@simpan_kendaraan');
 //end
 
+Route::get('/history','LogController@Log');//histroy
+
 Route::get('/profile/{a}','Controller@viewProfile');//akses profile menu
 Route::post('/saveProfile','Controller@saveProfile');//akses data profile
 
