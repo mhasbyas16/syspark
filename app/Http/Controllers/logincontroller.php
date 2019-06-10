@@ -26,7 +26,7 @@ class logincontroller extends Controller
         if ($jmlD>=1) {
             if ($isiD->id_petugas==$username) {
                 if ($isiD->password==$password) {
-                    if ($isiD->status=="login") {
+                    if ($isiD->status=='login') {
                         return redirect('/')->with('alert','Your Account Has Login Another Place, Call Admnistrator For Help');
                     }else{
                         DB::table('header_petugas')->where('id_petugas',$username)->update(['status'=>'login']);
