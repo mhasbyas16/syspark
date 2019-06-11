@@ -12,16 +12,16 @@
   <title>SYSPARK</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{url('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="<?php echo e(url('vendor/fontawesome-free/css/all.min.css')); ?>" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{url('css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="<?php echo e(url('css/sb-admin-2.min.css')); ?>" rel="stylesheet">
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script type="text/javascript" language="javascript" src="{{url('js/pict.js')}}"></script>
-  <link href="{{url('css/pict.css')}}" rel="stylesheet">
+  <script type="text/javascript" language="javascript" src="<?php echo e(url('js/pict.js')); ?>"></script>
+  <link href="<?php echo e(url('css/pict.css')); ?>" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 <style media="screen">
 
@@ -46,14 +46,16 @@
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
               </div>
 
-              @if (\Session::has('alert'))
+              <?php if(\Session::has('alert')): ?>
                   <div class="alert alert-danger text-center">
-                      <strong> Warning! </strong> {{Session::get('alert')}}
-                  </div>
-              @endif
+                      <strong> Warning! </strong> <?php echo e(Session::get('alert')); ?>
 
-              <form class="user" method="post" action="{{url('/simpan_petugas')}}" enctype="multipart/form-data">
-                  {{csrf_field()}}
+                  </div>
+              <?php endif; ?>
+
+              <form class="user" method="post" action="<?php echo e(url('/simpan_petugas')); ?>" enctype="multipart/form-data">
+                  <?php echo e(csrf_field()); ?>
+
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" name="first_name" placeholder="First Name" autofocus required>
@@ -142,11 +144,11 @@
                     <input type="password" class="form-control form-control-user" name="Upassword" placeholder="Repeat Password" required>
                   </div>
                 </div>
-                @if($hakakses=='admin')
+                <?php if($hakakses=='admin'): ?>
                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
-                @elseif($hakakses=='karyawan')
+                <?php elseif($hakakses=='karyawan'): ?>
                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account" disabled>
-                @endif
+                <?php endif; ?>
                 <hr>
               </form>
             </div>
@@ -158,15 +160,16 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{url('vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{url('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="<?php echo e(url('vendor/jquery/jquery.min.js')); ?>"></script>
+  <script src="<?php echo e(url('vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="{{url('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+  <script src="<?php echo e(url('vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="{{url('js/sb-admin-2.min.js')}}"></script>
+  <script src="<?php echo e(url('js/sb-admin-2.min.js')); ?>"></script>
 
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\syspark\resources\views/register.blade.php ENDPATH**/ ?>
