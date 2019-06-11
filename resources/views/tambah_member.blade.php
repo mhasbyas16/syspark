@@ -126,13 +126,13 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-2 mb-2 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" name="no_plat1" pattern="[A-Z]+" maxlength="1" value="B" required>
+                        <input type="text" class="form-control" name="no_plat1" pattern="[A-Z]+" maxlength="1" value="B" required>
                     </div>
                     <div class="col-sm-5 mb-5 mb-sm-0">
-                        <input type="text" class="form-control form-control-user text-center" name="no_plat2" pattern="[0-9]+" maxlength="4" required>
+                        <input type="text" class="form-control text-center" name="no_plat2" pattern="[0-9]+" maxlength="4" required>
                     </div>
                     <div class="col-sm-5 mb-5 mb-sm-0">
-                        <input type="text" class="form-control form-control-user text-center" name="no_plat3" pattern="[A-Z]+" maxlength="4" required>
+                        <input type="text" class="form-control text-center" name="no_plat3" pattern="[A-Z]+" maxlength="4" required>
                     </div>
                 </div>
                 <div class="form-group row">

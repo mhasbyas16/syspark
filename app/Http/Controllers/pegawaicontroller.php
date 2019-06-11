@@ -189,7 +189,6 @@ class pegawaicontroller extends Controller
             $cariC=$cari->count();
             $cariD=$cari->first();
 
-
             return view('edit_petugas',[
                 'cariD'=>$cariD,
                 'pict'=>$pict,

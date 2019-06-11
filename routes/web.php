@@ -36,13 +36,10 @@ Route::get('/tambah_petugas','pegawaicontroller@tambah_petugas');
 Route::get('/data_member','membercontroller@member');
 Route::get('/tambah_member','membercontroller@tambah_member');
 Route::post('/simpan_member','membercontroller@simpan_member');
-
-
-Route::get('/detail_petugas/{id_petugas}','pegawaicontroller@detail_petugas');
-Route::get('/delete_petugas/{id_petugas}','pegawaicontroller@delete_petugas');
-Route::get('/edit_petugas/{id_petugas}','pegawaicontroller@edit_petugas');
-Route::post('/simpan_edit_petugas','pegawaicontroller@simpan_edit_petugas');
-
+Route::get('/detail_member/{id_member}','membercontroller@detail_member');
+Route::get('/edit_member/{id_member}','membercontroller@edit_member');
+Route::post('/simpan_edit_member','membercontroller@simpan_edit_member');
+Route::get('/delete_member/{id_member}','membercontroller@delete_member');
 //end
 
 //biaya Controller
