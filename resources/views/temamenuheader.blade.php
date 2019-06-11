@@ -131,7 +131,8 @@
               <div class="panel panel-default">
                     <a class="collapse-item" data-toggle="collapse" data-parent="#accordion" href="#member">Member</a>
                 <div id="member" class="panel-collapse collapse in">
-                        <a class="collapse-item" href="{{url('/data_petugas')}}">1</a>
+                        <a class="collapse-item" href="{{url('/data_member')}}">Data Member</a>
+                        <a class="collapse-item" href="{{url('/tambah_member')}}">Tambah Member</a>
                 </div>
               </div>
             </div>

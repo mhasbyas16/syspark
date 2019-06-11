@@ -43,7 +43,7 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Tambah Member!</h1>
               </div>
 
               @if (\Session::has('alert'))
@@ -52,7 +52,7 @@
                   </div>
               @endif
 
-              <form class="user" method="post" action="{{url('/simpan_petugas')}}" enctype="multipart/form-data">
+              <form class="user" method="post" action="{{url('/simpan_member')}}" enctype="multipart/form-data">
                   {{csrf_field()}}
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -65,20 +65,12 @@
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" name="nik" placeholder="NIK" maxlength="16" required>
                 </div>
-
-                <div class="form-group">
-                  <input type="email" class="form-control form-control-user" name="email" placeholder="Email Address" required>
-                </div>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <select class="form-control" name="status" required>
-                            <option selected hidden disabled value="single">Status</option>
-                            <option value="single">Single</option>
-                            <option value="menikah">Menikah</option>
-                        </select>
+                        <input type="email" class="form-control form-control-user" name="email" placeholder="Email Address" required>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-user" name="jumlah_anak" placeholder="Jumlah Anak" required>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" name="no_tlfn" placeholder="Nomor Telefon" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -106,16 +98,49 @@
                     <label for="#">Alamat :</label>
                     <textarea class="form-control" rows="2" name="alamat" required></textarea>
                 </div>
+                <div class="form-group">
+                    <label for="#">Saldo :</label>
+                    <input type="text" class="form-control form-control-user" name="saldo" placeholder="Saldo" value="0" required>
+                </div>
+
+                <hr>
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Data Kendaraan</h1>
+                </div>
+
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" name="no_tlfn" placeholder="Nomor Telefon" required>
-                    </div>
-                    <div class="col-sm-6">
-                        <select required class="form-control" name="hakakses" value=" ">
-                            <option selected hidden value=" ">Hak Akses</option>
-                            <option value="admin">Admin</option>
-                            <option value="karyawan">Karyawan</option>
+                        <select class="form-control" name="jenis_kendaraan" value=" " required>
+                            <option selected hidden disabled value=" ">Jenis Kendaraan</option>
+                            @foreach($jenis as $jenis)
+                            <option value="{{$jenis->id_jenisk}}">{{$jenis->jenis_k}}</option>
+                            @endforeach
                         </select>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" name="nama_kendaraan" placeholder="Nama Kendaraan ex Mio" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="#">No Plat :</label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2 mb-2 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" name="no_plat1" pattern="[A-Z]+" maxlength="1" value="B" required>
+                    </div>
+                    <div class="col-sm-5 mb-5 mb-sm-0">
+                        <input type="text" class="form-control form-control-user text-center" name="no_plat2" pattern="[0-9]+" maxlength="4" required>
+                    </div>
+                    <div class="col-sm-5 mb-5 mb-sm-0">
+                        <input type="text" class="form-control form-control-user text-center" name="no_plat3" pattern="[A-Z]+" maxlength="4" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" name="tahun_kendaraan" placeholder="Tahun Kendaraan" required>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" name="no_rangka" placeholder="Nomor Rangka" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -134,14 +159,6 @@
                     </div>
                 </div>
             </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" name="password" placeholder="Password" required>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" name="Upassword" placeholder="Repeat Password" required>
-                  </div>
-                </div>
                 @if($hakakses=='admin')
                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
                 @elseif($hakakses=='karyawan')
