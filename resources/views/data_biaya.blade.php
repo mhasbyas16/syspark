@@ -47,10 +47,25 @@
                       @foreach($biaya as $biaya)
                         <tr>
                             <td>{{$biaya->jenis_k}}</td>
-                            <td>{{$biaya->menit_g}}</td>
-                            <td>{{$biaya->jam_p}}</td>
+                            <td><?php
+                            $jam = floor($biaya->menit_g/3600);
+                            $sisa = $biaya->menit_g% 3600;
+                            $menit = floor($sisa/60);
+                            echo $jam.':'.$menit;
+                            ?></td>
+                            <td><?php
+                            $jam = floor($biaya->jam_p/3600);
+                            $sisa = $biaya->jam_p% 3600;
+                            $menit = floor($sisa/60);
+                            echo $jam.':'.$menit;
+                            ?></td>
                             <td>Rp. {{$biaya->biaya_p}}</td>
-                            <td>{{$biaya->jam_b}}</td>
+                            <td><?php
+                            $jam = floor($biaya->jam_b/3600);
+                            $sisa = $biaya->jam_b% 3600;
+                            $menit = floor($sisa/60);
+                            echo $jam.':'.$menit;
+                            ?></td>
                             <td>Rp. {{$biaya->biaya_b}}</td>
                             <td>{{$biaya->tipe}}</td>
                       @if($hakakses=='admin')

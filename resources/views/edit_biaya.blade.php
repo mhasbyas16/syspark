@@ -79,13 +79,13 @@
                         <label for="#">:</label>
                     </div>
                     <div class="col-sm-2 mb-3 mb-sm-0">
-                        <input type="number" class="form-control text-center" maxlength="2" name="menitg_h" value="{{$data->menitg_g_H}}" min="0" max="24" required>
+                        <input type="number" class="form-control text-center" maxlength="2" name="menitg_h" value="<?php $jam=floor($data->menit_g/3600); echo $jam; ?>" min="0" max="24" required>
                     </div>
                     <div class="col-sm-1 mb-3 mb-sm-0">
                         <label for="#">Jam</label>
                     </div>
                     <div class="col-sm-2 mb-3 mb-sm-0">
-                        <input type="number" class="form-control text-center" maxlength="2" name="menitg_m" value="{{$data->menitg_g_M}}" min="0" max="59" required>
+                        <input type="number" class="form-control text-center" maxlength="2" name="menitg_m" value="<?php $sisa = $data->menit_g% 3600; $menit = floor($sisa/60); echo $menit;?>" min="0" max="59" required>
                     </div>
                     <div class="col-sm-1 mb-3 mb-sm-0">
                         <label for="#">Menit</label>
@@ -128,13 +128,13 @@
                         <label for="#">:</label>
                     </div>
                     <div class="col-sm-2 mb-3 mb-sm-0">
-                        <input type="number" class="form-control text-center" maxlength="2" name="jamp_h" value="{{$data->jam_p_H}}" min="0" max="24" required>
+                        <input type="number" class="form-control text-center" maxlength="2" name="jamp_h" value="<?php $jam=floor($data->jam_p/3600); echo $jam; ?>" min="0" max="24" required>
                     </div>
                     <div class="col-sm-1 mb-3 mb-sm-0">
                         <label for="#">Jam</label>
                     </div>
                     <div class="col-sm-2 mb-3 mb-sm-0">
-                        <input type="number" class="form-control text-center" maxlength="2" name="jamp_m" value="{{$data->jam_p_M}}" min="0" max="59" required>
+                        <input type="number" class="form-control text-center" maxlength="2" name="jamp_m" value="<?php $sisa = $data->jam_p% 3600; $menit = floor($sisa/60); echo $menit;?>" min="0" max="59" required>
                     </div>
                     <div class="col-sm-1 mb-3 mb-sm-0">
                         <label for="#">Menit</label>
@@ -148,13 +148,13 @@
                         <label for="#">:</label>
                     </div>
                     <div class="col-sm-2 mb-3 mb-sm-0">
-                        <input type="number" class="form-control text-center" maxlength="2" name="jamb_h" value="{{$data->jam_b_H}}" min="0" max="24" required>
+                        <input type="number" class="form-control text-center" maxlength="2" name="jamb_h" value="<?php $jam=floor($data->jam_b/3600); echo $jam; ?>" min="0" max="24" required>
                     </div>
                     <div class="col-sm-1 mb-3 mb-sm-0">
                         <label for="#">Jam</label>
                     </div>
                     <div class="col-sm-2 mb-3 mb-sm-0">
-                        <input type="number" class="form-control text-center" maxlength="2" name="jamb_m" value="{{$data->jam_b_M}}" min="0" max="59" required>
+                        <input type="number" class="form-control text-center" maxlength="2" name="jamb_m" value="<?php $sisa = $data->jam_b% 3600; $menit = floor($sisa/60); echo $menit;?>" min="0" max="59" required>
                     </div>
                     <div class="col-sm-1 mb-3 mb-sm-0">
                         <label for="#">Menit</label>

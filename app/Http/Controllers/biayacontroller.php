@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Helpers\log;
+use App\Helpers\detik;
 use DB;
 
 class biayacontroller extends Controller
@@ -48,17 +49,17 @@ class biayacontroller extends Controller
         }else{
             $idK=$req->jenisk;
             //menit gratis
-            $menitg_h=$req->menitg_h;
-            $menitg_m=$req->menitg_m;
-            $menitg=$menitg_h.":".$menitg_m;
+            $menitg_h=$req->menitg_h*3600;
+            $menitg_m=$req->menitg_m*60;
+            $menitg=$menitg_h+$menitg_m;
             //jam Pertama
-            $jamp_h=$req->jamp_h;
-            $jamp_m=$req->jamp_m;
-            $jamp=$jamp_h.":".$jamp_m;
+            $jamp_h=$req->jamp_h*3600;
+            $jamp_m=$req->jamp_m*60;
+            $jamp=$jamp_h+$jamp_m;
             //jam Berikutnya
-            $jamb_h=$req->jamb_h;
-            $jamb_m=$req->jamb_m;
-            $jamb=$jamb_h.":".$jamb_m;
+            $jamb_h=$req->jamb_h*3600;
+            $jamb_m=$req->jamb_m*60;
+            $jamb=$jamb_h+$jamb_m;
 
             $biaya_p=$req->biaya_p;
             $biaya_b=$req->biaya_b;
@@ -95,7 +96,6 @@ class biayacontroller extends Controller
             return redirect('/');
         }else{
         $data=DB::table('biaya')
-              ->select('biaya.*','jenis_kendaraan.*', DB::raw('MID(menit_g,4,2) AS menitg_g_M, LEFT(menit_g,2) AS menitg_g_H, MID(jam_p,4,2) AS jam_p_M, LEFT(jam_p,2) AS jam_p_H, MID(jam_b,4,2) AS jam_b_M, LEFT(jam_b,2) AS jam_b_H'))
               ->join('jenis_kendaraan','biaya.id_jenisk','=','jenis_kendaraan.id_jenisk')
               ->where('id_biaya',$id_biaya)->where('biaya.id_jenisk',$id_jenisk)->first();
         $jenisk=DB::table('jenis_kendaraan')->get();
@@ -116,17 +116,17 @@ class biayacontroller extends Controller
             $id_biaya=$req->id_biaya;
             $idK=$req->jenisk;
             //menit gratis
-            $menitg_h=$req->menitg_h;
-            $menitg_m=$req->menitg_m;
-            $menitg=$menitg_h.":".$menitg_m;
+            $menitg_h=$req->menitg_h*3600;
+            $menitg_m=$req->menitg_m*60;
+            $menitg=$menitg_h+$menitg_m;
             //jam Pertama
-            $jamp_h=$req->jamp_h;
-            $jamp_m=$req->jamp_m;
-            $jamp=$jamp_h.":".$jamp_m;
+            $jamp_h=$req->jamp_h*3600;
+            $jamp_m=$req->jamp_m*60;
+            $jamp=$jamp_h+$jamp_m;
             //jam Berikutnya
-            $jamb_h=$req->jamb_h;
-            $jamb_m=$req->jamb_m;
-            $jamb=$jamb_h.":".$jamb_m;
+            $jamb_h=$req->jamb_h*3600;
+            $jamb_m=$req->jamb_m*60;
+            $jamb=$jamb_h+$jamb_m;
 
             $biaya_p=$req->biaya_p;
             $biaya_b=$req->biaya_b;
